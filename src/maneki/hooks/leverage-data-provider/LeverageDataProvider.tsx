@@ -11,6 +11,8 @@ import {
 } from 'src/maneki/modules/leverage/utils/leverageActionHelper';
 import { marketsData } from 'src/ui-config/marketsConfig';
 
+import { LEVERAGE_STABLE_COINS, LEVERAGE_UNSTABLE_COINS } from '../../modules/leverage/config';
+
 export interface IBorrowAssets {
   unstable: string;
   stable: string;
@@ -56,6 +58,8 @@ export const LeverageDataProvider: React.FC<{ children: ReactElement }> = ({ chi
     value: BigNumber.from(0),
     balance: BigNumber.from(0),
     decimals: 0,
+    mandatoryStableCoin: '',
+    mandatoryUnstableCoin: '',
   });
   const [borrowAssets, setBorrowAssets] = React.useState<IBorrowAssets>({
     unstable: '0x82af49447d8a07e3bd95bd0d56f35241523fbab1',
@@ -130,6 +134,28 @@ export const LeverageDataProvider: React.FC<{ children: ReactElement }> = ({ chi
         });
       collateralAssets[i].balance = promiseReturn[0] as BigNumber;
       collateralAssets[i].decimals = promiseReturn[1] as number;
+
+      /**
+       * Set supported stable & unstable coins for leverage
+       */
+      LEVERAGE_STABLE_COINS.map((e) => {
+        if (
+          (e.startsWith('W') && collateralAssets[i].token == e.substring(1)) ||
+          collateralAssets[i].token == e
+        ) {
+          collateralAssets[i].mandatoryStableCoin = e;
+        }
+      });
+
+      LEVERAGE_UNSTABLE_COINS.map((e) => {
+        if (
+          (collateralAssets[i].token.startsWith('W') &&
+            collateralAssets[i].token.substring(1) == e) ||
+          collateralAssets[i].token == e
+        ) {
+          collateralAssets[i].mandatoryUnstableCoin = e;
+        }
+      });
     }
 
     return collateralAssets;
