@@ -23,6 +23,11 @@ export interface IBorrowAmount {
   stable: BigNumber;
 }
 
+export interface IleverageBorrowAsset {
+  symbol: string;
+  address: string;
+}
+
 interface LeverageData {
   collateralAmount: BigNumber;
   setCollateralAmount: (value: BigNumber) => void;
@@ -41,7 +46,11 @@ interface LeverageData {
   currentCollateral: collateralAssetsType;
   setCurrentCollateral: (value: collateralAssetsType) => void;
   borrowAssets: IBorrowAssets;
-  setBorrowAssets: (value: IBorrowAssets) => void;
+  setBorrowAssets: (value: IBorrowAssets) => void; // Moved out to constant
+  currentBorrowedStableAsset: IleverageBorrowAsset | null;
+  setCurrentBorrowedStableAsset: (value: IleverageBorrowAsset) => void;
+  currentBorrowedUnstableAsset: IleverageBorrowAsset | null;
+  setCurrentBorrowedUnstableAsset: (value: IleverageBorrowAsset) => void;
   borrowAmount: IBorrowAmount;
   setBorrowAmount: (value: IBorrowAmount) => void;
   ratio: number[];
@@ -58,13 +67,15 @@ export const LeverageDataProvider: React.FC<{ children: ReactElement }> = ({ chi
     value: BigNumber.from(0),
     balance: BigNumber.from(0),
     decimals: 0,
-    mandatoryStableCoin: '',
-    mandatoryUnstableCoin: '',
   });
   const [borrowAssets, setBorrowAssets] = React.useState<IBorrowAssets>({
     unstable: '0x82af49447d8a07e3bd95bd0d56f35241523fbab1',
     stable: '0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8',
   });
+  const [currentBorrowedStableAsset, setCurrentBorrowedStableAsset] =
+    React.useState<IleverageBorrowAsset>(LEVERAGE_STABLE_COINS[0]);
+  const [currentBorrowedUnstableAsset, setCurrentBorrowedUnstableAsset] =
+    React.useState<IleverageBorrowAsset>(LEVERAGE_UNSTABLE_COINS[0]);
   const [borrowAmount, setBorrowAmount] = React.useState<IBorrowAmount>({
     unstable: BigNumber.from(0),
     stable: BigNumber.from(0),
@@ -138,24 +149,24 @@ export const LeverageDataProvider: React.FC<{ children: ReactElement }> = ({ chi
       /**
        * Set supported stable & unstable coins for leverage
        */
-      LEVERAGE_STABLE_COINS.map((e) => {
-        if (
-          (e.startsWith('W') && collateralAssets[i].token == e.substring(1)) ||
-          collateralAssets[i].token == e
-        ) {
-          collateralAssets[i].mandatoryStableCoin = e;
-        }
-      });
+      // LEVERAGE_STABLE_COINS.map((e) => {
+      //   if (
+      //     (e.symbol.startsWith('W') && collateralAssets[i].token == e.symbol.substring(1)) ||
+      //     collateralAssets[i].token == e.symbol
+      //   ) {
+      //     collateralAssets[i].mandatoryStableCoin = e.symbol;
+      //   }
+      // });
 
-      LEVERAGE_UNSTABLE_COINS.map((e) => {
-        if (
-          (collateralAssets[i].token.startsWith('W') &&
-            collateralAssets[i].token.substring(1) == e) ||
-          collateralAssets[i].token == e
-        ) {
-          collateralAssets[i].mandatoryUnstableCoin = e;
-        }
-      });
+      // LEVERAGE_UNSTABLE_COINS.map((e) => {
+      //   if (
+      //     (collateralAssets[i].token.startsWith('W') &&
+      //       collateralAssets[i].token.substring(1) == e.symbol) ||
+      //     collateralAssets[i].token == e.symbol
+      //   ) {
+      //     collateralAssets[i].mandatoryUnstableCoin = e.symbol;
+      //   }
+      // });
     }
 
     return collateralAssets;
@@ -182,6 +193,10 @@ export const LeverageDataProvider: React.FC<{ children: ReactElement }> = ({ chi
         setCurrentCollateral,
         borrowAssets,
         setBorrowAssets,
+        currentBorrowedStableAsset,
+        setCurrentBorrowedUnstableAsset,
+        currentBorrowedUnstableAsset,
+        setCurrentBorrowedStableAsset,
         borrowAmount,
         setBorrowAmount,
         ratio,
