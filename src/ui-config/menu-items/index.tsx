@@ -42,9 +42,9 @@ export const navigation: Navigation[] = [
   //     !ENABLE_TESTNET,
   // },
   {
-    link: ROUTES.managePaw,
-    title: t`Manage PAW`,
-    dataCy: 'menuManagePaw',
+    link: ROUTES.manage,
+    title: t`Manage`,
+    dataCy: 'menuManage',
   },
   {
     link: ROUTES.airdrop,

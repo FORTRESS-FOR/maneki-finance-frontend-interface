@@ -121,7 +121,7 @@ export const ROUTES = {
   faucet: '/faucet',
   airdrop: '/airdrop',
   migrationTool: '/v3-migration',
-  managePaw: '/managePaw',
+  manage: '/manage',
   tge: '/tge',
   leverage: '/leverage',
   prerenderedProposal: (proposalId: number) => `/governance/proposal/${proposalId}`,
