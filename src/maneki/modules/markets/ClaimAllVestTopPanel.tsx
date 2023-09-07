@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { FormattedNumber } from 'src/components/primitives/FormattedNumber';
 import { NoData } from 'src/components/primitives/NoData';
+import { useProtocolDataContext } from 'src/hooks/useProtocolDataContext';
 import { useWeb3Context } from 'src/libs/hooks/useWeb3Context';
 import CHEF_INCENTIVES_CONTROLLER_ABI from 'src/maneki/abi/chefIncentivesControllerABI';
 import LENDING_PROTOCOL_DATA_PROVIDER_ABI from 'src/maneki/abi/lendingProtocolDataProviderABI';
@@ -33,7 +34,8 @@ const ClaimAllVestTopPanel = () => {
     .LENDING_PROTOCOL_DATA_PROVIDER as string;
   const CHEF_INCENTIVES_CONTROLLER_ADDR = marketsData.bsc_testnet_v3.addresses
     .CHEF_INCENTIVES_CONTROLLER as string;
-  const { provider, currentAccount } = useWeb3Context();
+  const { provider, currentAccount, chainId } = useWeb3Context();
+  const { currentMarketData } = useProtocolDataContext();
 
   const [tokenAddresses, setTokenAddresses] = useState<TokenAddressType[] | undefined>(undefined);
   const [totalVests, setTotalVests] = useState<BigNumber>(BigNumber.from(-1));
@@ -84,6 +86,8 @@ const ClaimAllVestTopPanel = () => {
     setRefresh(false);
     //eslint-disable-next-line
   }, [currentAccount, provider, refresh]);
+
+  if (!currentAccount || chainId === currentMarketData.chainId) return <></>;
 
   return (
     <Box
