@@ -1,4 +1,5 @@
 import { ChainId } from '@aave/contract-helpers';
+import { manekiChainId } from 'src/maneki/manekiConfig';
 
 export type ExplorerLinkBuilderProps = {
   tx?: string;
@@ -51,7 +52,35 @@ export type NetworkConfig = {
 export type BaseNetworkConfig = Omit<NetworkConfig, 'explorerLinkBuilder'>;
 
 export const networkConfigs: Record<string, BaseNetworkConfig> = {
-  [97]: {
+  [manekiChainId.opbnb_testnet]: {
+    name: 'opBNB Testnet',
+    publicJsonRPCUrl: [
+      'https://opbnb-testnet-rpc.bnbchain.org',
+      'https://opbnb-testnet-rpc.bnbchain.org',
+    ],
+    baseUniswapAdapter: '0x0',
+    baseAssetSymbol: 'BNB',
+    wrappedBaseAssetSymbol: 'WBNB',
+    baseAssetDecimals: 18,
+    explorerLink: 'https://opbnb-testnet.bscscan.com/',
+    isTestnet: false,
+    networkLogoPath: '/icons/networks/bsc.svg',
+  },
+  [manekiChainId.opbnb]: {
+    name: 'opBNB',
+    publicJsonRPCUrl: [
+      'https://opbnb-mainnet-rpc.bnbchain.org',
+      'https://opbnb-mainnet-rpc.bnbchain.org',
+    ],
+    baseUniswapAdapter: '0x0',
+    baseAssetSymbol: 'BNB',
+    wrappedBaseAssetSymbol: 'WBNB',
+    baseAssetDecimals: 18,
+    explorerLink: 'https://opbnbscan.com/',
+    isTestnet: false,
+    networkLogoPath: '/icons/networks/bsc.svg',
+  },
+  [manekiChainId.bsc_testnet]: {
     name: 'BSC Testnet',
     publicJsonRPCUrl: [
       'https://data-seed-prebsc-1-s1.binance.org:8545/',
