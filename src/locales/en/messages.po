@@ -762,13 +762,16 @@ msgid "Current votes"
 msgstr "Current votes"
 
 #: src/maneki/modules/manage/ManageTopPanel.tsx
+#: src/maneki/modules/manage/ManageTopPanel.tsx
 msgid "Daily penalty fees"
 msgstr "Daily penalty fees"
 
 #: src/maneki/modules/manage/ManageTopPanel.tsx
+#: src/maneki/modules/manage/ManageTopPanel.tsx
 msgid "Daily platform fees"
 msgstr "Daily platform fees"
 
+#: src/maneki/modules/manage/ManageTopPanel.tsx
 #: src/maneki/modules/manage/ManageTopPanel.tsx
 #: src/maneki/modules/stake/StakeTopPanel.tsx
 msgid "Daily revenue"
@@ -1337,6 +1340,7 @@ msgid "Manage"
 msgstr "Manage"
 
 #: src/maneki/modules/manage/ManageTopPanel.tsx
+#: src/maneki/modules/manage/ManageTopPanel.tsx
 msgid "Manage PAW"
 msgstr "Manage PAW"
 
@@ -1575,10 +1579,6 @@ msgstr "Overview"
 #: src/maneki/modules/manage/ManageMainActions.tsx
 msgid "PAW Locks"
 msgstr "PAW Locks"
-
-#: src/maneki/modules/tge/TGETopPanel.tsx
-msgid "PAW Token Generation Event"
-msgstr "PAW Token Generation Event"
 
 #: src/maneki/modules/manage/ManageMainActions.tsx
 msgid "PAW Vests"
@@ -2009,6 +2009,7 @@ msgid "Staked"
 msgstr "Staked"
 
 #: src/maneki/modules/manage/ManageTopPanel.tsx
+#: src/maneki/modules/manage/ManageTopPanel.tsx
 msgid "Staked + Locked PAW"
 msgstr "Staked + Locked PAW"
 
@@ -2399,6 +2400,11 @@ msgid "To request access for this permissioned market, please visit: <0>Acces Pr
 msgstr "To request access for this permissioned market, please visit: <0>Acces Provider Name</0>"
 
 #: src/maneki/modules/tge/TGETopPanel.tsx
+#: src/maneki/modules/tge/TGETopPanel.tsx
+msgid "Token Generation Event"
+msgstr "Token Generation Event"
+
+#: src/maneki/modules/tge/TGETopPanel.tsx
 msgid "Tokenomics"
 msgstr "Tokenomics"
 
@@ -2689,6 +2695,7 @@ msgstr "Wallets are provided by External Providers and by selecting you agree to
 msgid "We suggest you go back to the Dashboard."
 msgstr "We suggest you go back to the Dashboard."
 
+#: src/maneki/modules/manage/ManageTopPanel.tsx
 #: src/maneki/modules/manage/ManageTopPanel.tsx
 #: src/maneki/modules/stake/StakeTopPanel.tsx
 msgid "Weekly revenue"

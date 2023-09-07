@@ -13,6 +13,37 @@ import { useWeb3Context } from '../../../libs/hooks/useWeb3Context';
 import { marketsData } from '../../../ui-config/marketsConfig';
 import { useManageContext } from '../../hooks/manage-data-provider/ManageDataProvider';
 
+export const ManageTopPanelPlaceholder = () => {
+  return (
+    <TopInfoPanel pageTitle={<Trans>Manage PAW</Trans>}>
+      {/* Staked paw display */}
+      <TopInfoPanelItem icon={<PieIcon />} title={<Trans>Staked + Locked PAW</Trans>}>
+        <NoData />
+      </TopInfoPanelItem>
+
+      {/* Daily revenue display */}
+      <TopInfoPanelItem icon={<PieIcon />} title={<Trans>Daily revenue</Trans>}>
+        <NoData />
+      </TopInfoPanelItem>
+
+      {/* weekly revenue display */}
+      <TopInfoPanelItem icon={<PieIcon />} title={<Trans>Weekly revenue</Trans>}>
+        <NoData />
+      </TopInfoPanelItem>
+
+      {/* Platform fee display */}
+      <TopInfoPanelItem icon={<PieIcon />} title={<Trans>Daily platform fees</Trans>}>
+        <NoData />
+      </TopInfoPanelItem>
+
+      {/* Penalty Fee display */}
+      <TopInfoPanelItem icon={<PieIcon />} title={<Trans>Daily penalty fees</Trans>}>
+        <NoData />
+      </TopInfoPanelItem>
+    </TopInfoPanel>
+  );
+};
+
 export const ManageTopPanel = () => {
   const {
     stakedPAW,

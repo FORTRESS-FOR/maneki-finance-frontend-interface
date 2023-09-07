@@ -6,8 +6,9 @@ import * as React from 'react';
 import { TopInfoPanel } from '../../../components/TopInfoPanel/TopInfoPanel';
 
 export const TGETopPanel = () => {
+  return <TopInfoPanel pageTitle={<Trans>Token Generation Event</Trans>} />;
   return (
-    <TopInfoPanel pageTitle={<Trans>PAW Token Generation Event</Trans>}>
+    <TopInfoPanel pageTitle={<Trans>Token Generation Event</Trans>}>
       <TGETopPanelLinks title={<Trans>Tokenomics</Trans>} link={'https://docs.maneki.finance'} />
       <TGETopPanelLinks title={<Trans>Guide</Trans>} link={'https://docs.maneki.finance'} />
       {/* <TGETopPanelLinks title={<Trans>Audit Report</Trans>} link={'#'} /> */}
