@@ -18,11 +18,6 @@ interface Navigation {
 
 export const navigation: Navigation[] = [
   {
-    link: ROUTES.leverage,
-    title: t`Leverage`,
-    dataCy: 'menuLeverage',
-  },
-  {
     link: ROUTES.markets,
     title: t`Markets`,
     dataCy: 'menuMarkets',
@@ -45,6 +40,11 @@ export const navigation: Navigation[] = [
     link: ROUTES.manage,
     title: t`Manage`,
     dataCy: 'menuManage',
+  },
+  {
+    link: ROUTES.leverage,
+    title: t`Leverage`,
+    dataCy: 'menuLeverage',
   },
   {
     link: ROUTES.airdrop,
