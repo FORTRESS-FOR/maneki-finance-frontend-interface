@@ -2153,12 +2153,9 @@ msgstr "Switch rate"
 
 #: src/maneki/components/SwitchNetworkHeader.tsx
 #: src/maneki/components/SwitchNetworkHeader.tsx
-msgid "Switch to BNB Testnet"
-msgstr "Switch to BNB Testnet"
-
 #: src/maneki/components/SwitchNetworkHeader.tsx
-msgid "Switch to tBNB"
-msgstr "Switch to tBNB"
+msgid "Switch to {0}"
+msgstr "Switch to {0}"
 
 #: src/components/transactions/Emode/EmodeActions.tsx
 msgid "Switching E-Mode"
