@@ -1,50 +1,20 @@
 import { Trans } from '@lingui/macro';
 import { Box, Button, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { useProtocolDataContext } from 'src/hooks/useProtocolDataContext';
+import { useWeb3Context } from 'src/libs/hooks/useWeb3Context';
 
-const handleSwitchNetwork = async () => {
-  try {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    await window.ethereum.request({
-      method: 'wallet_switchEthereumChain',
-      params: [{ chainId: '0x61' || 97 }],
-    });
-  } catch (switchError) {
-    // This error code indicates that the chain has not been added to MetaMask.
-    if (switchError.code === 4902) {
-      try {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        await window.ethereum.request({
-          method: 'wallet_addEthereumChain',
-          params: [
-            {
-              chainId: '0x61' || 97,
-              rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545/'],
-              chainName: 'BNB Smart Chain - Testnet',
-              nativeCurrency: {
-                symbol: 'TBNB',
-                name: 'Binance',
-                decimals: 18,
-              },
-              blockExplorerUrls: ['https://testnet.bscscan.com'],
-            },
-          ],
-        });
-      } catch (addError) {
-        // handle "add" error
-        console.log('Add Error Message: ', addError.message);
-      }
-    } else {
-      console.log('Switch Error Message: ', switchError.message);
-    }
-  }
-};
+import { opbnbTestnetNetworkSwitcher } from '../utils/networkSwitcher';
+
+const networkSwitcher = opbnbTestnetNetworkSwitcher;
 
 const SwitchNetworkHeader = () => {
   const theme = useTheme();
   const downToMD = useMediaQuery(theme.breakpoints.down('md'));
 
+  const { chainId, currentAccount } = useWeb3Context();
+  const { currentMarketData } = useProtocolDataContext();
+
+  if (!currentAccount || chainId === currentMarketData.chainId) return <></>;
   return (
     <Box
       sx={{
@@ -73,7 +43,7 @@ const SwitchNetworkHeader = () => {
         )}
       </Typography>
       <Button
-        onClick={handleSwitchNetwork}
+        onClick={networkSwitcher}
         sx={{
           fontSize: '16px',
           fontWeight: '900',
@@ -82,16 +52,21 @@ const SwitchNetworkHeader = () => {
           textDecoration: 'underline',
         }}
       >
-        {downToMD ? <Trans>Switch to tBNB</Trans> : <Trans>Switch to BNB Testnet</Trans>}
+        {downToMD ? (
+          <Trans>Switch to {currentMarketData.marketTitle}</Trans>
+        ) : (
+          <Trans>Switch to {currentMarketData.marketTitle}</Trans>
+        )}
       </Button>
     </Box>
   );
 };
 
 const SwitchNetworkButton = () => {
+  const { currentMarketData } = useProtocolDataContext();
   return (
-    <Button onClick={handleSwitchNetwork} variant="wallet">
-      <Trans>Switch to BNB Testnet</Trans>
+    <Button onClick={networkSwitcher} variant="wallet">
+      <Trans>Switch to {currentMarketData.marketTitle}</Trans>
     </Button>
   );
 };
