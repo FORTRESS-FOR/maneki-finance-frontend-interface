@@ -5,6 +5,8 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "dev": "next dev",
+    "dev:bsc": "env-cmd -f .env.local.bsc next dev",
+    "dev:arbi": "env-cmd -f .env.local.arbi next dev",
     "build": "next build",
     "build:analyze": "ANALYZE=true yarn build",
     "build:static": "next build && next export",
@@ -68,6 +70,7 @@
     "d3-array": "^3.2.0",
     "d3-time-format": "^4.1.0",
     "dayjs": "^1.11.5",
+    "env-cmd": "^10.1.0",
     "eth-provider": "^0.10.0",
     "ethereum-blockies-base64": "^1.0.2",
     "ethers": "^5.5.4",
