@@ -140,12 +140,12 @@ export const baseTestnetNetworkSwitcher = async () =>
 
 export const opbnbNetworkSwitcher = async () =>
   await networkSwitcher(
-    switchNetworkParams[manekiChainId.base_testnet],
-    addNetworkParams[manekiChainId.base_testnet]
+    switchNetworkParams[manekiChainId.opbnb],
+    addNetworkParams[manekiChainId.opbnb]
   );
 
 export const opbnbTestnetNetworkSwitcher = async () =>
   await networkSwitcher(
-    switchNetworkParams[manekiChainId.base_testnet],
-    addNetworkParams[manekiChainId.base_testnet]
+    switchNetworkParams[manekiChainId.opbnb_testnet],
+    addNetworkParams[manekiChainId.opbnb_testnet]
   );
