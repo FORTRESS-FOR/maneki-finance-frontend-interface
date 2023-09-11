@@ -45,7 +45,7 @@ export default function ManekiLoadingPaper({
           color: 'text.secondary',
           fontSize: '32px',
           fontFamily: 'Roboto Slab, serif',
-          fontWeight: '500',
+          fontWeight: '600',
         }}
       >
         {description}
