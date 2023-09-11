@@ -37,15 +37,15 @@ export const navigation: Navigation[] = [
   //     !ENABLE_TESTNET,
   // },
   {
-    link: ROUTES.manage,
-    title: t`Manage`,
-    dataCy: 'menuManage',
+    link: ROUTES.staking,
+    title: t`Staking`,
+    dataCy: 'menuStaking',
   },
-  {
-    link: ROUTES.leverage,
-    title: t`Leverage`,
-    dataCy: 'menuLeverage',
-  },
+  // {
+  //   link: ROUTES.leverage,
+  //   title: t`Leverage`,
+  //   dataCy: 'menuLeverage',
+  // },
   {
     link: ROUTES.airdrop,
     title: t`Airdrop`,

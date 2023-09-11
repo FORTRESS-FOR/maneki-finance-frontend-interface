@@ -15,7 +15,7 @@ import { useManageContext } from '../../hooks/manage-data-provider/ManageDataPro
 
 export const ManageTopPanelPlaceholder = () => {
   return (
-    <TopInfoPanel pageTitle={<Trans>Manage PAW</Trans>}>
+    <TopInfoPanel pageTitle={<Trans>Staking</Trans>}>
       {/* Staked paw display */}
       <TopInfoPanelItem icon={<PieIcon />} title={<Trans>Staked + Locked PAW</Trans>}>
         <NoData />
