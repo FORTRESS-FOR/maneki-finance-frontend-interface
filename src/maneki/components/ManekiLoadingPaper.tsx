@@ -38,7 +38,16 @@ export default function ManekiLoadingPaper({
         alt="maneki cat in 3d"
       />
 
-      <Typography variant="h3" sx={{ m: 6, color: 'text.secondary' }}>
+      <Typography
+        variant="h3"
+        sx={{
+          m: 6,
+          color: 'text.secondary',
+          fontSize: '32px',
+          fontFamily: 'Roboto Slab, serif',
+          fontWeight: '500',
+        }}
+      >
         {description}
       </Typography>
       {withCircle ? <CircularProgress /> : <></>}
