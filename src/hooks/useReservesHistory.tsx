@@ -89,7 +89,7 @@ export function useReserveRatesHistory(reserveAddress: string, timeRange: Reserv
   const [error, setError] = useState(false);
   const [data, setData] = useState<FormattedReserveHistoryItem[]>([]);
 
-  const ratesHistoryApiUrl = currentNetworkConfig?.ratesHistoryApiUrl;
+  const ratesHistoryApiUrl = currentNetworkConfig?.ratesHistoryApiUrl as undefined;
 
   const refetchData = useCallback<() => () => void>(() => {
     // reset
