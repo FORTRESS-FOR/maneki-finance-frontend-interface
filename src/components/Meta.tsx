@@ -34,12 +34,6 @@ export function Meta({ title, description, imageUrl, timestamp }: MetaProps) {
         key="keywords"
         content="Decentralized Finance, DeFi, lending, lending protocol, borrowing, stablecoins, Ethereum, BNB, BSC, Binance Coin, binance smart chain, BNB Chain, erc-20, bep-20, smart contracts, open finance, liquidity pool, venus, venus protocol, venus finance, radiant, radiant capital, radiant finance, crypto, cryptocurrencies, pancakeswap"
       />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="True" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap"
-        rel="stylesheet"
-      />
     </Head>
   );
 }
