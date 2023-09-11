@@ -15,11 +15,11 @@ export const useCryptoBuyAvailable = (
       const transakApiUrl = process.env.NEXT_PUBLIC_TRANSAK_API_URL;
 
       try {
-        const response = await fetch(
-          `${transakApiUrl}/cryptocoverage/api/v1/public/partner/crypto-currencies?symbol=${cryptoCode}&network=${networkMarketName}`
-        );
-
-        setIsAvailable(response.ok);
+        // const response = await fetch(
+        //   `${transakApiUrl}/cryptocoverage/api/v1/public/partner/crypto-currencies?symbol=${cryptoCode}&network=${networkMarketName}`
+        // );
+        if (transakApiUrl) setIsAvailable(false);
+        else setIsAvailable(false);
       } catch (e) {
         setIsAvailable(false);
       }
