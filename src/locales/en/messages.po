@@ -334,8 +334,8 @@ msgid "Available to supply"
 msgstr "Available to supply"
 
 #: pages/404.page.tsx
-msgid "Back to Dashboard"
-msgstr "Back to Dashboard"
+msgid "Back to Markets"
+msgstr "Back to Markets"
 
 #: src/components/transactions/AssetInput.tsx
 #: src/components/transactions/ClaimRewards/ClaimRewardsModalContent.tsx

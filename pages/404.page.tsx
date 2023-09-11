@@ -37,7 +37,7 @@ export default function Aave404Page() {
           </Typography>
           <Link href="/" passHref>
             <Button variant="outlined" color="primary">
-              <Trans>Back to Dashboard</Trans>
+              <Trans>Back to Markets</Trans>
             </Button>
           </Link>
         </Paper>
