@@ -94,7 +94,7 @@ const moreMenuItems: MoreMenuItem[] = [
     icon: <DiscordIcon />,
   },
   {
-    link: 'https://github.com/aave/interface',
+    link: 'https://github.com/FORTRESS-FOR/maneki-interface',
     title: t`Github`,
     icon: <GithubIcon />,
   },
