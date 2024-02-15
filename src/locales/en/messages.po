@@ -18,16 +18,8 @@ msgid "Airdrop"
 msgstr "Airdrop"
 
 #: src/ui-config/menu-items/index.tsx
-msgid "Buy Crypto With Fiat"
-msgstr "Buy Crypto With Fiat"
-
-#: src/ui-config/menu-items/index.tsx
 msgid "Dashboard"
 msgstr "Dashboard"
-
-#: src/ui-config/menu-items/index.tsx
-msgid "Developers"
-msgstr "Developers"
 
 #: src/ui-config/menu-items/index.tsx
 msgid "Discord"

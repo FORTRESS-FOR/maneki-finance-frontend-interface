@@ -46,7 +46,7 @@ export const TxErrorView = ({ txError }: { txError: TxErrorType }) => {
               Discord
             </Link>{' '}
             or{' '}
-            <Link target="_blank" href="https://github.com/aave/interface">
+            <Link target="_blank" href="https://github.com/maneki-on-blast">
               Github
             </Link>
             .
